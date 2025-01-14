@@ -52,6 +52,7 @@ from pathlib import Path
 This is for saving intermediate spectrogram output as well as final time signal output of model.
 """
 def evaluate_lr_hr_data(data, model, wandb_n_files_to_log, files_to_log, epoch, args, enhance=True):
+    # args.device = 'cpu'
     (lr, lr_path), (hr, hr_path) = data
     lr, hr = lr.to(args.device), hr.to(args.device)
     hr_sr = args.experiment.hr_sr if 'experiment' in args else args.hr_sr

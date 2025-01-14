@@ -22,7 +22,8 @@ def run_metrics(clean, estimate, args, filename):
 
 
 def get_metrics(clean, estimate, sr, filename, speech_mode, args):
-    calc_visqol = args.visqol and args.visqol_path
+    # calc_visqol = args.visqol and args.visqol_path
+    calc_visqol = False
     visqol_path = args.visqol_path
     clean = clean.squeeze(dim=1)
     estimate = estimate.squeeze(dim=1)
@@ -51,6 +52,7 @@ class STFTMag(nn.Module):
                           self.nfft,
                           self.hop,
                           window=self.window,
+                          return_complex=True
                           )  # return_complex=False)  #[B, F, TT,2]
         mag = torch.norm(stft, p=2, dim=-1)  # [B, F, TT]
         return mag

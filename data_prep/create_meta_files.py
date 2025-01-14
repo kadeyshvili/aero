@@ -9,10 +9,10 @@ import json
 from multiprocessing import Process, Manager
 import pathlib
 
-FILE_PATTERN='*_mic1.wav'
-TOTAL_N_SPEAKERS=108
+FILE_PATTERN='*.wav'
+TOTAL_N_SPEAKERS=109
 TRAIN_N_SPEAKERS=100
-TEST_N_SPEAKERS=8
+TEST_N_SPEAKERS=9
 
 Info = namedtuple("Info", ["length", "sample_rate", "channels"])
 
